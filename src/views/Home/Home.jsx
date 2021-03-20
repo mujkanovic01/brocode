@@ -7,7 +7,6 @@ const Home = () => {
   const history = useHistory();
 
   const checkIfAuthenticated = (isAuthenticated) => {
-    console.log("check");
     if (isAuthenticated) {
       history.push(Routes.login);
     }

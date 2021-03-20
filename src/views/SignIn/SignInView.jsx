@@ -10,6 +10,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Routes from "../../enums/routes.enum";
 
 function Copyright() {
   return (
@@ -104,7 +105,7 @@ export default function SignIn() {
           <Grid container justify="flex-end">
             <Grid item>
               {/** Add routing to sign up page */}
-              <Link href="#" variant="body2">
+              <Link href={Routes.signup} variant="body2">
                 Niste registrovani? Registrujte se
               </Link>
             </Grid>

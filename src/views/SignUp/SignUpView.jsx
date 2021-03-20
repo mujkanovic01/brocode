@@ -10,6 +10,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Routes from "../../enums/routes.enum";
+import { useHistory } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -46,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SignUp() {
   const nameInput = useRef();
+  const history = useHistory();
   const classes = useStyles();
 
   const handleSubmit = () => {
@@ -54,6 +57,7 @@ export default function SignUp() {
     const password = nameInput.current[4].value;
 
     //todo: post to backend
+    history.push(Routes.login);
     console.log(name, email, password);
   };
 
@@ -116,7 +120,7 @@ export default function SignUp() {
           <Grid container justify="flex-end">
             <Grid item>
               {/** Add routing to sign in page */}
-              <Link href="#" variant="body2">
+              <Link href={Routes.login} variant="body2">
                 Već ste registrovani? Prijavite se
               </Link>
             </Grid>
