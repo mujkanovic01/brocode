@@ -10,6 +10,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Routes from "../../enums/routes.enum";
 
 function Copyright() {
   return (
@@ -44,17 +45,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function SignIn() {
   const nameInput = useRef();
   const classes = useStyles();
 
   const handleSubmit = () => {
-    const name = nameInput.current[0].value;
-    const email = nameInput.current[2].value;
-    const password = nameInput.current[4].value;
+    const email = nameInput.current[0].value;
+    const password = nameInput.current[2].value;
 
     //todo: post to backend
-    console.log(name, email, password);
+    console.log(email, password);
   };
 
   return (
@@ -65,21 +65,10 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Registracija
+          Prijava
         </Typography>
         <form className={classes.form} noValidate ref={nameInput}>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <TextField
-                name="name"
-                variant="outlined"
-                required
-                fullWidth
-                id="name"
-                label="Ime i prezime"
-                autoFocus
-              />
-            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -111,13 +100,13 @@ export default function SignUp() {
             className={classes.submit}
             onClick={handleSubmit}
           >
-            Registracija
+            Prijava
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              {/** Add routing to sign in page */}
-              <Link href="#" variant="body2">
-                Već ste registrovani? Prijavite se
+              {/** Add routing to sign up page */}
+              <Link href={Routes.signup} variant="body2">
+                Niste registrovani? Registrujte se
               </Link>
             </Grid>
           </Grid>

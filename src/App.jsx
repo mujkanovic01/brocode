@@ -1,12 +1,24 @@
 import React from "react";
-import SignUpView from "./views/SignUpView";
-import SignInView from "./views/SignInView";
+import Home from "./views/Home/Home";
+import SignUpView from "./views/SignUp/SignUpView";
+import SignInView from "./views/SignIn/SignInView";
+import { BrowserRouter, Route } from "react-router-dom";
+import Routes from "./enums/routes.enum";
 
 const App = () => {
   return (
     <div>
-      <SignUpView></SignUpView>
-      <SignInView />
+      <BrowserRouter>
+        <Route path={Routes.home} exact component={Home} />
+        <Route path={Routes.login} exact component={SignInView} />
+        <Route path={Routes.signup} exact component={SignUpView} />
+
+        {/*
+        <Route path = '/questions' component = {AllQuestionView} />
+        <Route path = '/questions/question' component = {SingleQuestionView} />
+        <Route path = '/' component = {Home} />
+        */}
+      </BrowserRouter>
     </div>
   );
 };

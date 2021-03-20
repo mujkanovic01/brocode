@@ -10,6 +10,8 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import Routes from "../../enums/routes.enum";
+import { useHistory } from "react-router-dom";
 
 function Copyright() {
   return (
@@ -44,16 +46,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignUp() {
   const nameInput = useRef();
+  const history = useHistory();
   const classes = useStyles();
 
   const handleSubmit = () => {
-    const email = nameInput.current[0].value;
-    const password = nameInput.current[2].value;
+    const name = nameInput.current[0].value;
+    const email = nameInput.current[2].value;
+    const password = nameInput.current[4].value;
 
     //todo: post to backend
-    console.log(email, password);
+    history.push(Routes.login);
+    console.log(name, email, password);
   };
 
   return (
@@ -64,10 +69,21 @@ export default function SignIn() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Prijava
+          Registracija
         </Typography>
         <form className={classes.form} noValidate ref={nameInput}>
           <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                name="name"
+                variant="outlined"
+                required
+                fullWidth
+                id="name"
+                label="Ime i prezime"
+                autoFocus
+              />
+            </Grid>
             <Grid item xs={12}>
               <TextField
                 variant="outlined"
@@ -99,13 +115,13 @@ export default function SignIn() {
             className={classes.submit}
             onClick={handleSubmit}
           >
-            Prijava
+            Registracija
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
-              {/** Add routing to sign up page */}
-              <Link href="#" variant="body2">
-                Niste registrovani? Registrujte se
+              {/** Add routing to sign in page */}
+              <Link href={Routes.login} variant="body2">
+                Već ste registrovani? Prijavite se
               </Link>
             </Grid>
           </Grid>
