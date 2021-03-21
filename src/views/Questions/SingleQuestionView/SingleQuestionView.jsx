@@ -6,11 +6,24 @@ import URL from "../../../api/URL";
 import ArrowUp from "@material-ui/icons/KeyboardArrowUp";
 import ArrowDown from "@material-ui/icons/KeyboardArrowDown";
 import api from "../../../api/api";
+import url from "../../../api/URL";
+
 
 export default function SingleQuestionView(props) {
   const [question, setquestion] = useState({});
   const [answers, setanswers] = useState([]);
+  const [classes, setclasses] = useState([])
+
   useEffect(() => {
+
+    fetch(`${url.url}/classes`)
+    .then((response) => response.json())
+    .then((result) =>{ 
+      console.log(result)
+    setclasses(result)
+    })
+    .catch((error) => console.log("error", error));
+
     fetch(URL.url + `/questions/byId/${props.match.params.id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -31,12 +44,15 @@ export default function SingleQuestionView(props) {
     if (arrayOfUpwotedAnswers.includes(id)) return;
     arrayOfUpwotedAnswers.push(id);
     api.voteIncrement(id);
+    window.location.reload();
   }
 
   function handleArrowDownClick(id) {
     if (arrayOfDownwotedAnswers.includes(id)) return;
     arrayOfDownwotedAnswers.push(id);
     api.voteDecrement(id);
+    window.location.reload();
+
   }
 
   return (
@@ -47,24 +63,25 @@ export default function SingleQuestionView(props) {
           <p>Predmeti</p>
         </div>
         <div className="SingleQuestionView__SideBar__Classes">
-          <Link className="SingleQuestionView__SideBar__Classes__Class">
-            Matematika
-          </Link>
-          <Link className="SingleQuestionView__SideBar__Classes__Class">
-            Matematika
-          </Link>
-          <Link className="SingleQuestionView__SideBar__Classes__Class">
-            Matematika
-          </Link>
-          <Link className="SingleQuestionView__SideBar__Classes__Class">
-            Matematika
-          </Link>
-          <Link className="SingleQuestionView__SideBar__Classes__Class">
-            Matematika
-          </Link>
-          <Link className="SingleQuestionView__SideBar__Classes__Class">
-            Matematika
-          </Link>
+         
+        { classes ? (classes.map((singleclass) => {
+        
+        if(props.match.params.classID==singleclass._id){
+        return (<div >
+            
+            <Link className="QuestionsView__SideBar__Classes__Class Class--Selected" >
+              {singleclass.title}
+            </Link>
+        </div>);}
+        else{
+          return(
+          <Link to={`${singleclass._id}`}  re className="QuestionsView__SideBar__Classes__Class" >
+              {singleclass.title}
+            </Link>)
+        }
+
+})) : ''}
+         
         </div>
       </div>
       <div className="SingleQuestionView__MainView">
