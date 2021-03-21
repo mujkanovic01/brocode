@@ -1,4 +1,5 @@
 import url from "./URL";
+import Routes from "../enums/routes.enum";
 
 class api {
   // Sign up
@@ -24,7 +25,7 @@ class api {
       .catch((error) => console.log("error", error));
   }
 
-  signIn(email, password) {
+  signIn(email, password, history) {
     var urlencoded = new URLSearchParams();
     urlencoded.append("email", email);
     urlencoded.append("password", password);
@@ -42,6 +43,7 @@ class api {
       .then((data) => {
         console.log(data.accessToken);
         localStorage.setItem("Authorization", `Bearer ${data.accessToken}`);
+        history.push(Routes.home);
       });
   }
 }

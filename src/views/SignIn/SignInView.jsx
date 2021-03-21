@@ -13,6 +13,8 @@ import Container from "@material-ui/core/Container";
 import Routes from "../../enums/routes.enum";
 import NavigationBar from "../../components/organisms/NavigationBar/NavigationBar";
 import api from "../../api/api";
+import { useHistory } from "react-router-dom";
+
 
 function Copyright() {
   return (
@@ -48,19 +50,21 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SignIn() {
+  const history = useHistory();
+
   const nameInput = useRef();
   const classes = useStyles();
 
-  const handleSubmit = () => {
+  const handleSubmit = async() => {
     const email = nameInput.current[0].value;
     const password = nameInput.current[2].value;
-    api.signIn(email,password)
+    api.signIn(email,password,history)
 
-    //todo: post to backend
-    console.log(email, password);
+ 
   };
 
   return (
+   
     <Container component="main" maxWidth="xs">
       <NavigationBar></NavigationBar>
       <CssBaseline />
@@ -68,9 +72,11 @@ export default function SignIn() {
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
         </Avatar>
+
         <Typography component="h1" variant="h5">
           Prijava
-        </Typography>
+        </Typography>  
+
         <form className={classes.form} noValidate ref={nameInput}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
