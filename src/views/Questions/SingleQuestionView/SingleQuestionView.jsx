@@ -5,6 +5,7 @@ import "./SingleQuestionView.scss";
 import URL from "../../../api/URL";
 import ArrowUp from "@material-ui/icons/KeyboardArrowUp";
 import ArrowDown from "@material-ui/icons/KeyboardArrowDown";
+import api from "../../../api/api";
 
 export default function SingleQuestionView(props) {
   const [question, setquestion] = useState({});
@@ -13,14 +14,12 @@ export default function SingleQuestionView(props) {
     fetch(URL.url + `/questions/byId/${props.match.params.id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data[0]);
         setquestion(data[0]);
       });
 
     fetch(URL.url + `/answers/byQuestionId/${props.match.params.id}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setanswers(data);
       });
   }, []);
@@ -29,10 +28,15 @@ export default function SingleQuestionView(props) {
   const arrayOfDownwotedAnswers = [];
 
   function handleArrowUpClick(id) {
-    if(arrayOfUpwotedAnswers.includes(id)) return;
+    if (arrayOfUpwotedAnswers.includes(id)) return;
     arrayOfUpwotedAnswers.push(id);
-    
-    console.log(id);
+    api.voteIncrement(id);
+  }
+
+  function handleArrowDownClick(id) {
+    if (arrayOfDownwotedAnswers.includes(id)) return;
+    arrayOfDownwotedAnswers.push(id);
+    api.voteDecrement(id);
   }
 
   return (
@@ -91,7 +95,10 @@ export default function SingleQuestionView(props) {
                     onClick={() => handleArrowUpClick(answer._id)}
                   ></ArrowUp>
                   <p>{answer.votes}</p>
-                  <ArrowDown></ArrowDown>
+                  <ArrowDown
+                    value={answer._id}
+                    onClick={() => handleArrowDownClick(answer._id)}
+                  ></ArrowDown>
                 </div>
                 <div className="SingleQuestionView__MainView__Answers__Answer__Text">
                   <p className="SingleQuestionView__MainView__Answers__Answer__Text__Description">
