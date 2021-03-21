@@ -3,10 +3,9 @@ import Home from "./views/Home/Home";
 import SignUpView from "./views/SignUp/SignUpView";
 import SignInView from "./views/SignIn/SignInView";
 import QuestionsView from "./views/Questions/QuestionsView/QuestionsView";
-import SingleQuestion from "./views/Questions/SingleQuestion/SingleQuestion"
+import SingleQuestionView from "./views/Questions/SingleQuestionView/SingleQuestionView";
 import { BrowserRouter, Route } from "react-router-dom";
 import Routes from "./enums/routes.enum";
-
 
 const App = () => {
   return (
@@ -17,7 +16,7 @@ const App = () => {
         <Route path={Routes.signup} exact component={SignUpView} />
         <Route path={"/questions/:classID"} exact component={QuestionsView} />
         
-        <Route path = '/questions/question/:id' component = {SingleQuestion} />
+        <Route path = '/questions/question/:id' component = {SingleQuestionView} />
        
         
       </BrowserRouter>
