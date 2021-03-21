@@ -1,0 +1,98 @@
+.SingleQuestionView {
+  &__SideBar {
+    position: fixed;
+    height: calc(100% - 60px);
+    width: 200px;
+    left: 20%;
+    padding-top: 72px;
+
+    &__Title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    &__Classes {
+      margin: 12px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      color: white;
+
+      &__Class {
+        color: #6d6d6d;
+        padding: 12px;
+      }
+    }
+  }
+
+  &__MainView {
+    padding-top: 60px;
+    border-left: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
+    left: calc(20% + 200px);
+    height: 100%;
+    width: calc(60% - 200px);
+    position: absolute;
+
+    &__Question {
+      padding: 30px;
+      border-bottom: 1px solid #d4d4d4;
+
+      &__Title {
+        font-size: 24px;
+      }
+
+      &__Date {
+        font-size: 16px;
+        color: grey;
+      }
+
+      &__Description {
+        padding-top: 20px;
+      }
+    }
+
+    &__Answers {
+      padding: 30px;
+      padding-top: 10px;
+      &__Title {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      &__Answer {
+        display: flex;
+        padding: 16px 0px;
+        border-bottom: 1px solid #d4d4d4;
+
+        &__Votes {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-right: 16px;
+        }
+
+        &__Text {
+          &__Description {
+          }
+
+          &__Date {
+            padding-top: 8px;
+            display: flex;
+            justify-content: flex-end;
+
+            p {
+              font-size: 12px;
+              color: grey;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.Class--Selected {
+  color: #2b2b2b;
+  font-weight: 500;
+}
