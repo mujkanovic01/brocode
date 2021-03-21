@@ -27,7 +27,11 @@ export default function SingleQuestionView(props) {
 
   const arrayOfUpwotedAnswers = [];
   const arrayOfDownwotedAnswers = [];
+
   function handleArrowUpClick(id) {
+    if(arrayOfUpwotedAnswers.includes(id)) return;
+    arrayOfUpwotedAnswers.push(id);
+    
     console.log(id);
   }
 
