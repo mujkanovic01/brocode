@@ -1,0 +1,44 @@
+.QuestionCard {
+  padding: 20px;
+  border-bottom: 1px solid lightgrey;
+  &__Main {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+
+    &__Info {
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      flex-direction: row;
+      &__Group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0px 15px;
+        &__Number {
+          color: grey;
+        }
+        &__Text {
+          color: grey;
+          font-size: 12px;
+        }
+      }
+    }
+
+    &__Title {
+      padding: 0px 15px;
+    }
+  }
+
+  &__Footer {
+    display: flex;
+    justify-content: flex-end;
+
+    &__Text {
+      color: grey;
+      font-size: 12px;
+    }
+  }
+}
