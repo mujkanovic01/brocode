@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Routes from "../../enums/routes.enum";
 import { useHistory } from "react-router-dom";
+import api from "../../api/api";
 
 function Copyright() {
   return (
@@ -56,8 +57,9 @@ export default function SignUp() {
     const email = nameInput.current[2].value;
     const password = nameInput.current[4].value;
 
-    //todo: post to backend
-    history.push(Routes.login);
+    api.signUp(name, email, password);
+
+    //history.push(Routes.login);
     console.log(name, email, password);
   };
 
