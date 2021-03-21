@@ -3,7 +3,7 @@ const Routes = {
   login: "/signin",
   signup: "/signup",
   questions: "/questions",
-  question: "/questions/question",
+  question: "/questions/question/:id",
 };
 
 export default Routes;
