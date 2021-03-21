@@ -43,7 +43,7 @@ class api {
       .then((data) => {
         console.log(data.accessToken);
         localStorage.setItem("Authorization", `Bearer ${data.accessToken}`);
-        history.push("/questions/:classID");
+        history.push("/questions/3");
       });
   }
 
@@ -131,8 +131,8 @@ class api {
       .catch((error) => console.log("error", error));
   }
 
-  postAnswer(desc, isanonymous, question_id){
-    console.log("nesto");                     
+  postAnswer(desc, isanonymous, question_id) {
+    console.log("nesto");
     var myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
 
@@ -142,61 +142,61 @@ class api {
     urlencoded.append("question_id", question_id);
 
     var requestOptions = {
-      method: 'POST',
+      method: "POST",
       headers: myHeaders,
       body: urlencoded,
-      redirect: 'follow'
+      redirect: "follow",
     };
 
     fetch(`${url.url}/answers/newAnswer`, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   }
 
-  validateAnswer(id){
+  validateAnswer(id) {
     var urlencoded = new URLSearchParams();
     urlencoded.append("id", id);
 
     var requestOptions = {
-      method: 'PATCH',
-      redirect: 'follow'
+      method: "PATCH",
+      redirect: "follow",
     };
-    
+
     fetch(`${url.url}/answers/validateAnswer/${id}`, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   }
 
-  voteIncrement(id){
+  voteIncrement(id) {
     var urlencoded = new URLSearchParams();
     urlencoded.append("id", id);
 
     var requestOptions = {
-      method: 'PATCH',
-      redirect: 'follow'
+      method: "PATCH",
+      redirect: "follow",
     };
-    
+
     fetch(`${url.url}/answers/incrementVote/${id}`, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   }
 
-  voteDecrement(id){
+  voteDecrement(id) {
     var urlencoded = new URLSearchParams();
     urlencoded.append("id", id);
 
     var requestOptions = {
-      method: 'PATCH',
-      redirect: 'follow'
+      method: "PATCH",
+      redirect: "follow",
     };
-    
+
     fetch(`${url.url}/answers/decrementVote/${id}`, requestOptions)
-      .then(response => response.text())
-      .then(result => console.log(result))
-      .catch(error => console.log('error', error));
+      .then((response) => response.text())
+      .then((result) => console.log(result))
+      .catch((error) => console.log("error", error));
   }
 }
 

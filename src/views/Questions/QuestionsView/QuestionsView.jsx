@@ -42,15 +42,15 @@ const [classes, setclasses] = useState([])
         if(props.match.params.classID==singleclass._id){
         return (<div >
             
-            <Link className="QuestionsView__SideBar__Classes__Class Class--Selected" >
+            <a href={`http://localhost:3000/questions/${singleclass._id}`} className="QuestionsView__SideBar__Classes__Class Class--Selected" >
               {singleclass.title}
-            </Link>
+            </a>
         </div>);}
         else{
           return(
-          <Link to={`${singleclass._id}`}  re className="QuestionsView__SideBar__Classes__Class" >
+          <a href={`http://localhost:3000/questions/${singleclass._id}`}  className="QuestionsView__SideBar__Classes__Class" >
               {singleclass.title}
-            </Link>)
+            </a>)
         }
 
 })) : ''}
@@ -60,8 +60,9 @@ const [classes, setclasses] = useState([])
       <div className="QuestionsView__MainView">
         { questions ? (questions.map((answer) => {
         return (<div >
-            
+            <Link to={`question/${answer._id}`}>
            <QuestionCard question={answer} ></QuestionCard>
+           </Link>
         </div>);
 })) : ''}
       

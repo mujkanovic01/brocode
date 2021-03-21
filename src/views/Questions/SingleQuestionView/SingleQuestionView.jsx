@@ -60,24 +60,24 @@ export default function SingleQuestionView(props) {
       <NavigationBar></NavigationBar>
       <div className="SingleQuestionView__SideBar">
         <div className="SingleQuestionView__SideBar__Title">
-          <p>Predmeti</p>
+         <p>Predmeti</p>
         </div>
         <div className="SingleQuestionView__SideBar__Classes">
          
         { classes ? (classes.map((singleclass) => {
         
-        if(props.match.params.classID==singleclass._id){
+       if(props.match.params.classID==singleclass._id){
         return (<div >
             
-            <Link className="QuestionsView__SideBar__Classes__Class Class--Selected" >
+            <a href={`http://localhost:3000/questions/${singleclass._id}`} className="QuestionsView__SideBar__Classes__Class Class--Selected" >
               {singleclass.title}
-            </Link>
+            </a>
         </div>);}
         else{
           return(
-          <Link to={`${singleclass._id}`}  re className="QuestionsView__SideBar__Classes__Class" >
-              {singleclass.title}
-            </Link>)
+            <a href={`http://localhost:3000/questions/${singleclass._id}`}  className="QuestionsView__SideBar__Classes__Class" >
+            {singleclass.title}
+          </a>)
         }
 
 })) : ''}
