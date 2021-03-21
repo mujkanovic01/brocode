@@ -1,0 +1,21 @@
+.NavigationBar {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow-x: hidden;
+  border-bottom: 1px solid black;
+  &__Links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    a {
+      padding: 0px 20px;
+    }
+
+    a:hover {
+      transition: color 0.2s ease-in-out;
+      color: rgba(#00d3ad, 0.8);
+    }
+  }
+}

@@ -2,6 +2,7 @@ import React from "react";
 import Home from "./views/Home/Home";
 import SignUpView from "./views/SignUp/SignUpView";
 import SignInView from "./views/SignIn/SignInView";
+import QuestionsView from "./views/Questions/QuestionsView/QuestionsView";
 import { BrowserRouter, Route } from "react-router-dom";
 import Routes from "./enums/routes.enum";
 
@@ -12,9 +13,8 @@ const App = () => {
         <Route path={Routes.home} exact component={Home} />
         <Route path={Routes.login} exact component={SignInView} />
         <Route path={Routes.signup} exact component={SignUpView} />
-
+        <Route path={Routes.questions} exact component={QuestionsView} />
         {/*
-        <Route path = '/questions' component = {AllQuestionView} />
         <Route path = '/questions/question' component = {SingleQuestionView} />
         <Route path = '/' component = {Home} />
         */}

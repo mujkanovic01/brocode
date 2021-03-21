@@ -11,6 +11,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Routes from "../../enums/routes.enum";
+import NavigationBar from "../../components/organisms/NavigationBar/NavigationBar";
+import api from "../../api/api";
 
 function Copyright() {
   return (
@@ -52,6 +54,7 @@ export default function SignIn() {
   const handleSubmit = () => {
     const email = nameInput.current[0].value;
     const password = nameInput.current[2].value;
+    api.signIn(email,password)
 
     //todo: post to backend
     console.log(email, password);
@@ -59,6 +62,7 @@ export default function SignIn() {
 
   return (
     <Container component="main" maxWidth="xs">
+      <NavigationBar></NavigationBar>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
