@@ -1,10 +1,16 @@
 .NavigationBar {
-  padding: 20px;
+  padding: 20px 0px;
   display: flex;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
   align-items: center;
   justify-content: space-between;
   overflow-x: hidden;
   border-bottom: 1px solid black;
+  background-color: white;
+  height: 20px;
+
   &__Links {
     display: flex;
     align-items: center;

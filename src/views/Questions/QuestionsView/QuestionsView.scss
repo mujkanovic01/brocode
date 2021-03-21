@@ -1,2 +1,40 @@
 .QuestionsView {
+  &__SideBar {
+    position: fixed;
+    height: calc(100% - 60px);
+    width: 200px;
+    padding: 12px;
+    padding-top: 72px;
+
+    &__Title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    &__Classes {
+      margin: 12px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      color: white;
+
+      &__Class {
+        color: #6d6d6d;
+        padding: 12px;
+
+        &__Selected {
+          color: #2b2b2b;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  &__MainView {
+    margin-left: 230px;
+    padding-top: 60px;
+    border-left: 1px solid black;
+    height: 100%;
+    position: absolute;
+  }
 }
