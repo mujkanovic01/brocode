@@ -15,7 +15,6 @@ import NavigationBar from "../../components/organisms/NavigationBar/NavigationBa
 import api from "../../api/api";
 import { useHistory } from "react-router-dom";
 
-
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -55,17 +54,14 @@ export default function SignIn() {
   const nameInput = useRef();
   const classes = useStyles();
 
-  const handleSubmit = async() => {
+  const handleSubmit = async () => {
     const email = nameInput.current[0].value;
     const password = nameInput.current[2].value;
-    api.signIn(email,password,history)
-
+    api.signIn(email, password, history);
   };
 
   return (
-   
     <Container component="main" maxWidth="xs">
-      <NavigationBar></NavigationBar>
       <CssBaseline />
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
@@ -74,7 +70,7 @@ export default function SignIn() {
 
         <Typography component="h1" variant="h5">
           Prijava
-        </Typography>  
+        </Typography>
 
         <form className={classes.form} noValidate ref={nameInput}>
           <Grid container spacing={2}>
