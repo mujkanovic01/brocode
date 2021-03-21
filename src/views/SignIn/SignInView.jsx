@@ -60,7 +60,6 @@ export default function SignIn() {
     const password = nameInput.current[2].value;
     api.signIn(email,password,history)
 
- 
   };
 
   return (
