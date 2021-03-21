@@ -1,0 +1,60 @@
+.QuestionsView {
+  &__SideBar {
+    position: fixed;
+    height: calc(100% - 60px);
+    width: 200px;
+    left: 20%;
+    padding-top: 72px;
+
+    &__Title {
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    &__Classes {
+      margin: 12px;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      color: white;
+
+      &__Class {
+        color: #6d6d6d;
+        padding: 12px;
+      }
+    }
+  }
+
+  &__MainView {
+    padding-top: 60px;
+    border-left: 1px solid #d4d4d4;
+    border-right: 1px solid #d4d4d4;
+    left: calc(20% + 200px);
+    height: 100%;
+    width: calc(60% - 200px);
+    position: absolute;
+
+    &__Header {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 30px;
+      border-bottom: 1px solid lightgrey;
+
+      &__Title {
+        font-size: 20px;
+      }
+
+      &__Button {
+        font-size: 16px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+.Class--Selected {
+  color: #2b2b2b;
+  font-weight: 500;
+}
