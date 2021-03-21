@@ -15,7 +15,7 @@ const App = () => {
         <Route path={Routes.home} exact component={Home} />
         <Route path={Routes.login} exact component={SignInView} />
         <Route path={Routes.signup} exact component={SignUpView} />
-        <Route path={Routes.questions} exact component={QuestionsView} />
+        <Route path={"/questions/:classID"} exact component={QuestionsView} />
         
         <Route path = '/questions/question/:id' component = {SingleQuestion} />
        
