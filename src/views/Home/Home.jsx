@@ -8,6 +8,8 @@ const Home = () => {
 
   const checkIfAuthenticated = (isAuthenticated) => {
     if (isAuthenticated) {
+      history.push(Routes.questions);
+    } else {
       history.push(Routes.login);
     }
   };

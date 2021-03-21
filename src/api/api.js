@@ -37,11 +37,12 @@ class api {
       redirect: "follow",
       body: urlencoded,
     };
-
-    fetch(`${url.url}/signup`, requestOptions)
-      .then((response) => console.log(response.text()))
-      .then((result) => console.log("ae", result))
-      .catch((error) => console.log("error", error));
+    fetch(url.url + "/login", requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data.accessToken);
+        localStorage.setItem("Authorization", `Bearer ${data.accessToken}`);
+      });
   }
 }
 
