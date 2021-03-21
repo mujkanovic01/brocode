@@ -8,7 +8,7 @@ const Home = () => {
 
   const checkIfAuthenticated = (isAuthenticated) => {
     if (isAuthenticated) {
-      history.push(Routes.questions);
+      history.push("/questions/3");
     } else {
       history.push(Routes.login);
     }
